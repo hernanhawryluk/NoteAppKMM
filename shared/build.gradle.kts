@@ -26,7 +26,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            implementation(libs.runtime)
             implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
@@ -37,6 +37,14 @@ kotlin {
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create("NoteDatabase") {
+            packageName.set("com.example.noteappkmm.database")
         }
     }
 }
